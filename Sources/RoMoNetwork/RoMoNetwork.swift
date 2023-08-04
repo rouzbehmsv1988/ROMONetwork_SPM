@@ -6,7 +6,7 @@ public class RoMoNetwork<T: Decodable> {
     deinit {
         cancellableData = nil
     }
-    static var shared: RoMoNetwork<T> {
+    public static var shared: RoMoNetwork<T> {
         return RoMoNetwork<T>()
     }
     
