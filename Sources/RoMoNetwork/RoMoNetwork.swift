@@ -11,7 +11,7 @@ public class RoMoNetwork<T: Decodable> {
     }
     
    private var cancellableData: AnyCancellable?
-    func requestPublisher(_ endpoint: Endpoint) -> AnyPublisher<T, Error> {
+    public func requestPublisher(_ endpoint: ROMOEndpoint) -> AnyPublisher<T, Error> {
         if #available(macOS 10.15, *) {
             return APIClient().fetchData(endpoint.request).eraseToAnyPublisher()
         } else {
@@ -19,7 +19,7 @@ public class RoMoNetwork<T: Decodable> {
         }
     }
     
-    func request(_ endpoint: Endpoint, completionHandler: @escaping (_ data: T?, _ error: Error?) -> Void) {
+    public func request(_ endpoint: ROMOEndpoint, completionHandler: @escaping (_ data: T?, _ error: Error?) -> Void) {
         cancellableData = requestPublisher(endpoint).mapError({(error) -> Error in
             NSLog(error.localizedDescription)
             return error
@@ -35,4 +35,5 @@ public class RoMoNetwork<T: Decodable> {
 
     }
 }
+
 

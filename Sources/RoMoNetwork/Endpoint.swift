@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 // you can input your baseURL and API Key here inorder to have access to the API service you want
-struct Endpoint {
+public struct ROMOEndpoint {
     private enum MethodTypes: String {
         case get = "GET"
         case put = "PUT"
