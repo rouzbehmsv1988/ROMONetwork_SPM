@@ -8,6 +8,7 @@ USAGE:
 RoMoNetwork<YourDecodableResponse>.shared.request(ROMOEndpoint(baseURL: url, method: .get)) { data, error in
 // use the response here
                }
+PS. Endpoint initalizer accepts extra arguments such as parameters, headers, paths , ...
                
 
 
